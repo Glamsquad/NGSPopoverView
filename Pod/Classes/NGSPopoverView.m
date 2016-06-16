@@ -406,6 +406,8 @@
         button.backgroundColor = [UIColor clearColor];
         [button addTarget:self action:@selector(tappedToDismiss) forControlEvents:UIControlEventTouchUpInside];
         [blurView addSubviewFillingParent:button margins:UIEdgeInsetsZero];
+    } else {
+        blurView.userInteractionEnabled = NO;
     }
     self.blurView = blurView;
     [superview addSubviewFillingParent:blurView margins:UIEdgeInsetsZero];
@@ -415,7 +417,7 @@
         [blurView.layer addSublayer:fillLayer];
         self.blurLayer = fillLayer;
     } else {
-        blurView.backgroundColor = [UIColor colorWithWhite:0.f alpha:0.5f];
+        blurView.backgroundColor = [UIColor colorWithWhite:0.f alpha:0.0f];
     }
     
     [blurView addSubview:self];
